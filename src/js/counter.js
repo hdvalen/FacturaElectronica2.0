@@ -6,6 +6,19 @@ export class TeamComponent extends HTMLElement {
   render(){
     let id = Date.now().toString(16);
       this.innerHTML = /* html */ `
+      <div class="container">
+      <div class="row justify-content-md-center mt-3">
+          <div class="col-1">
+          </div>
+          <div class="col-10">
+              <div class="card">
+                  <div class="card-header">
+                    Registro de Productos
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"> Registro</h5>
+                    <img src="" alt="" class="logoLoad">
+                    <form class="row g-3" id="frmDataLiga">
       <div class="row g-3">
       <div class="col-md-12">
               <label for="nameTeam" class="form-label">Numero de Factura</label>
@@ -28,6 +41,17 @@ export class TeamComponent extends HTMLElement {
               <input type="email" class="form-control" name="EmailUsuario" id="EmailUsuario">
           </div>
       </div>
+      <div class="col-12">
+                          <div class="card border- mb-3" style="max-width: 100%;">
+                              <div class="card-header">Registro de productos</div>
+                              <div class="card-body">
+                                <button type="button" class="btn btn-dark" id="addProduct">Agregar Producto</button>
+                                <div class="container productR">
+
+                                </div>
+                              </div>
+                            </div>
+                      </div>
       `
   }
 }
