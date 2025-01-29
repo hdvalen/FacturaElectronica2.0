@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="app.js"></script>
+    <title>Factura Electronica 2.0</title>
+  </head>
+  <body>
+    <!-- Nav Menu-->
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/src/images/ZJXG7pbLSwyitEyTNSc8_O1cTAW6KAObqc4un.webp" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
+          Campuslands
+        </a>
+        <a class="navbar-brand" href="#">Vender</a>
+        <a class="navbar-brand" href="#">Productos</a>
+      </div>
+    </nav>
+    <!-- productos -->
+    <div class="container">
+      <div class="row justify-content-md-center mt-3">
+          <div class="col-1">
+          </div>
+          <div class="col-10">
+              <div class="card">
+                  <div class="card-header">
+                    Factura Electronica
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Registro </h5>
+                    <img src="" alt="" class="logoLoad">
+                    <form class="row g-3" id="frmDataLiga">
+                      <team-component></team-component>
+                      <div class="col-12">
+                          <div class="card border- mb-3" style="max-width: 100%;">
+                              <div class="card-header">Registro de productos</div>
+                              <div class="card-body">
+                                <button type="button" class="btn btn-dark" id="addProduct">Agregar Producto</button>
+                                <div class="container productR">
+
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+
+                      <table class="table table-striped">
+                        <thead class="table-dark">
+                          <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Nombre Producto</th>
+                            <th scope="col">Valor Unidad</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Eliminar</th>
+                          </tr>
+                        </thead>
+                        <tbody class="TableProducts">
+                          
+                        </tbody>
+                      </table>
+                      <div class="col-12 justify-content-md-center">
+                        <button type="submit" class="btn btn-success" id="pagarBtn">Pagar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+          </div>
+          <div class="col-1">
+          </div>
+        </div>
+  </div>
+
+
+  <div class="modal fade" id="modalPagar" tabindex="-1" aria-labelledby="modalPagarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPagarLabel">Factura de Pago</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 id="modalSaludo" class="mb-4"></h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="modalTableBody">
+              <!-- Filas dinámicas -->
+            </tbody>
+          </table>
+          <div class="text-end mt-4">
+            <p>Subtotal: <span id="modalSubtotal">$0.00</span></p>
+            <p>IVA (19%): <span id="modalIVA">$0.00</span></p>
+            <h5>Total: <span id="modalTotal">$0.00</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" id="confirmarPago" class="btn btn-success">Confirmar Pago</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  </body>
+</html>
