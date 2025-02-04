@@ -1,13 +1,15 @@
-const URL_API = "http://localhost:3001";
+const URL_API = "http://localhost:3000";
 const myHeaders = new Headers({
     "Content-Type": "application/json"
 });
-const getContact = async() => {
+
+const getProducto = async() => {
     try {
-        const respuesta = await fetch(`${URL_API}/contacts`);
+        const respuesta = await fetch(`${URL_API}/productos`);
 		// Si la respuesta es correcta
 		if(respuesta.status === 200){
 			const datos = await respuesta.json();
+            return datos;
 		} else if(respuesta.status === 401){
             console.log('La url no es correcta');
 		} else if(respuesta.status === 404){
@@ -20,9 +22,9 @@ const getContact = async() => {
 	}
     
 }
-const postContact = async (datos) => {
+const postProducto = async (datos) => {
     try {
-        return await fetch(`${URL_API}/contacts`, {
+        return await fetch(`${URL_API}/productos`, {
             method: "POST",
             headers: myHeaders,
             body: JSON.stringify(datos)
@@ -31,23 +33,23 @@ const postContact = async (datos) => {
         console.error('Error en la solicitud POST:', error.message);
     }
 }
-const patchContact = async (datos,id) =>{
+const patchProducto = async (datos,id) =>{
 
     try {
-        return await fetch(`${URL_API}/contacts/${id}`, {
+        return await fetch(`${URL_API}/productos/${id}`, {
             method: "PATCH",
             headers: myHeaders,
             body: JSON.stringify(datos)
         });
     } catch (error) {
-        console.error('Error en la solicitud POST:', error.message);
+        console.error('Error en la solicitud PATCH:', error.message);
     }
 
 }
-const deleteContact = async (id) =>{
+const deleteProducto = async (id) =>{
 
     try {
-        return await fetch(`${URL_API}/contacts/${id}`, {
+        return await fetch(`${URL_API}/productos/${id}`, {
             method: "DELETE",
             headers: myHeaders,
         });
@@ -57,8 +59,8 @@ const deleteContact = async (id) =>{
 
 }
 export {
-    getContact as getContacts,
-    postContact as postContacts,
-    patchContact as patchContacts,
-    deleteContact as deleteContacts
+    getProducto as getProductos,
+    postProducto as postProductos,
+    patchProducto as patchProductos,
+    deleteProducto as deleteProductos
 };
